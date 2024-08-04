@@ -1,0 +1,21 @@
+.first-page--background-image--main {
+    background-image: url(/imgs/background/main-background-1.png);
+}
+
+.first-page__content {
+    width: 900px;
+    height: 324px;
+    gap: 32px;
+    margin: 80px 0 0 auto;
+    position: relative;
+}
+
+.first-page--protocol--margin {
+    margin: 32px 0 0 12.44px;
+}
+
+.first-page__button {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}

@@ -58,3 +58,24 @@ let searchBlocks = document
         item.addEventListener("click", searchBlocsEvent);
         item.addEventListener("click", mediasEvent);
     });
+
+function burgerMenu() {
+    let menu = document.querySelector(".burger-menu");
+    menu.focus();
+}
+
+let burger = document.querySelector(".burger-button");
+burger.addEventListener("click", burgerMenu);
+
+let oldWindowWidth;
+let checker = setInterval(() => {
+    let newWindowWidth = document.documentElement.clientWidth;
+    if (oldWindowWidth != newWindowWidth) {
+        let logo = document.querySelector("#logo-mobile");
+        if (newWindowWidth <= 376) {
+            logo.src = "icons/logotypes/logo_size3.svg";
+        } else {
+            logo.src = "icons/logotypes/logo_size2.svg";
+        }
+    }
+}, 1000);

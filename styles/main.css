@@ -1,3 +1,5 @@
+/* firs page */
+
 .first-page--background-image--main {
     background-image: url(/imgs/background/main-background-1.png);
 }
@@ -22,6 +24,8 @@
 
 @media(max-width: 768px) {
 
+    /* first page */
+
     .content-fp {
         width: inherit;
         height: 266px;
@@ -45,11 +49,7 @@
 
 @media(max-width: 376px) {
 
-    @media(min-height: 450px) {
-        .first-page--background-image--main {
-            background-image: url(/imgs/background/main-background-2.png);
-        }
-    }
+    /* first page */
 
     .content-fp {
         display: flex;
@@ -71,8 +71,22 @@
         position: static;
     }
 
-    .first-page__item {
-        height: calc(100vh - 60px);
-        display: flex;
+
+
+    @media(min-height: 450px) {
+        .first-page--background-image--main {
+            background-image: url(/imgs/background/main-background-2.png);
+        }
+
+    }
+
+    @media(max-height: 450px) {
+        .content-fp {
+            margin: 40px 0 48px 0;
+        }
+
+        .conteiner-fp__heading {
+            color: rgba(167, 110, 0, 1);
+        }
     }
 }

@@ -71,11 +71,54 @@ let oldWindowWidth;
 let checker = setInterval(() => {
     let newWindowWidth = document.documentElement.clientWidth;
     if (oldWindowWidth != newWindowWidth) {
-        let logo = document.querySelector("#logo-mobile");
+        oldWindowWidth = newWindowWidth;
+        let logo1 = document.querySelector("#logo-mobile");
+        let logo2 = document.querySelector("#footer__logo-mobile");
         if (newWindowWidth <= 376) {
-            logo.src = "icons/logotypes/logo_size3.svg";
+            logo1.src = "icons/logotypes/logo_size3.svg";
+            logo2.src = "icons/logotypes/logo_size3.svg";
         } else {
-            logo.src = "icons/logotypes/logo_size2.svg";
+            logo1.src = "icons/logotypes/logo_size2.svg";
+            logo2.src = "icons/logotypes/logo-slogan_size1.svg";
         }
     }
 }, 1000);
+
+function protocolsMenuEvent(event) {
+    if (event.target.closest("button")) {
+        let target = event.target.closest("button");
+        let img = event.target.lastElementChild;
+        let info = document.querySelectorAll(
+            `[data-couple="${target.dataset.couple}"]`
+        )[1];
+        if (oldWindowWidth <= 376) {
+            switch (event.type) {
+                case "focusin":
+                    img.src = `icons/arrow-active.svg`;
+                    img.style.transform = "rotate(0deg)";
+                    info.style.display = "block";
+                    target.after(info);
+                    break;
+                case "focusout":
+                    img.src = "icons/arrow-inactive.svg";
+                    img.style.transform = "rotate(90deg)";
+                    info.style.display = "none";
+                    break;
+            }
+        } else {
+            switch (event.type) {
+                case "focusin":
+                    img.src = `icons/arrow-active.svg`;
+                    info.style.display = "block";
+                    break;
+                case "focusout":
+                    img.src = "icons/arrow-inactive.svg";
+                    info.style.display = "none";
+                    break;
+            }
+        }
+    }
+}
+let protocolsMenu = document.querySelector(".protocols");
+protocolsMenu.addEventListener("focusin", protocolsMenuEvent);
+protocolsMenu.addEventListener("focusout", protocolsMenuEvent);
